@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Koda</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+
+</head>
+<body>
+
+    <div id="englobe_affichage">
+        <canvas id="affichage"></canvas>
+
+        <div id="bouton_rouge">
+        <button id="reset_button" onclick="pencil('white')">Chemin blanc</button>
+        </div>
+
+        <div id="bouton_vert">
+        <button id="reset_button" onclick="pencil('green')">Chemin vert</button>
+        </div>
+
+        <div id="bouton_rouge">
+        <button id="reset_button" onclick="pencil('red')">Chemin rouge</button>
+        </div>
+
+        <div id="bouton_bleu">
+        <button id="reset_button" onclick="pencil('blue')">Chemin bleu</button>
+        </div>
+
+        <div id="bouton_jaune">
+        <button id="reset_button" onclick="pencil('yellow')">Chemin jaune</button>
+        </div>
+
+        <div id="bouton_violet">
+        <button id="reset_button" onclick="pencil('purple')">Chemin violet</button>
+        </div>
+
+        <div id="bouton_orange">
+        <button id="reset_button" onclick="pencil('orange')">Chemin orange</button>
+        </div>
+
+        <div id="bouton_gris">
+        <button id="reset_button" onclick="pencil('gray')">Effacer</button>
+        </div>
+
+        <div id="bouton_start_reset">
+        <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
+        </div>
+
+    </div>
+
+    <div id="englobe_saisie" ondrop="drop(event)">
+        <ol id="saisie" class="example" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </ol>
+
+        <div id="corbeille" ondragover="allowDrop(event)">corbeille<ol id="trash"></ol>
+        </div>
+        
+        <a class="zoombox w800 h600" href="voir_le_code.html"><button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button></a>
+        <button onclick="javascript:window.history.go(0)" id="delete_all" type="button">Tout supprimer</button>
+    </div>
+
+    <div id="englobe_block">
+        <div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
+            </li>
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche
+            </li>
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut
+            </li>
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
+            </li>
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="couleur">Changement couleur
+            </li>
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">faire (x) fois<ol class="inner"></ol>
+            </li>
+        </div>
+
+        <div id="indication">
+        </div>
+
+        <div id="erreurs">Ici vous trouverez vos erreurs :
+        </div>
+
+        <button onclick="reset_level()" id="reset_level" type="button">Supprimer la sauvegarde</button>
+
+        <div id="invisible">
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/fonction_editeur.js"></script>
+    <script type="text/javascript" src="levels/level0.js"></script>
+    <script type="text/javascript" src="js/drag.js"></script>
+    <script type="text/javascript" src="js/affichage.js"></script>
+    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/storage.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+body
+{
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+}
+
+ol #saisie{
+  background-color: blue;
+  display: inline-block;
+}
+
+.bouton
+{
+	width: 30px;
+	height: 30px;
+}
+
+#koda
+{
+  width: 150px;
+  height: 80px;
+}
+
+#englobe_affichage
+{
+  display: inline-block;
+  float: left;
+  width: 31.8%;
+  height: 70%;
+  margin-right: 2%;
+}
+
+#affichage
+{
+  float: left;
+  width: 100%;
+  height: 90%;
+  margin-bottom: 2%;
+}
+
+#bouton_start_reset
+{
+  float: center;
+  width: 100%;
+  height: 20%;
+}
+
+#reset_button
+{
+  float: center;
+  width: 46.5%;
+  height: 7%;
+  margin: 1%;
+}
+
+#reset_level
+{
+  float: center;
+  width: 46.5%;
+  height: 7%;
+  margin: 1%;
+}
+
+#englobe_saisie
+{
+  display: inline-block;
+  text-align: center;
+  float: left;
+  width: 31.8%;
+  height: 70%;
+  background-color: limegreen;
+  border: 5px solid black;
+  border-color: green;
+  padding: 0.5%;
+}
+
+ol#saisie.example {
+    min-width: 85%;
+}
+
+#saisie
+{
+	text-align: center;
+	float: left;
+  /*width: 100%;*/
+	height: 40%;
+  display: inline-block;
+  background-color: limegreen;
+  min-height: 405px;
+  min-width: 31.8%;
+}
+
+#corbeille
+{
+  text-align: center;
+  width: 95%;
+  height: 50px;
+  border: 1px;
+  border-style:solid;
+  display: inline-block;
+  background-color: purple;
+  margin-bottom: 5px;
+  padding: 0.5%;
+}
+
+#voir_le_code
+{
+  text-align: center;
+  width: 48%;
+}
+
+#delete_all
+{
+  text-align: center;
+  width: 48%;
+}
+
+#englobe_block
+{
+  float: right;
+  text-align: center;
+  width: 31.8%;
+  height: 100%;
+}
+
+#block
+{
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  float: right;
+  width: 95%;
+  height: 100%;
+  background-color: lightblue;
+  border: 5px solid black;
+  border-color: cyan;
+  padding: 0.5%;
+  margin-bottom: 1%;
+}
+
+select
+{
+  text-align: center;
+  float: right;
+  width: 70px;
+  min-width: 70px;
+}
+
+#indication
+{
+  display: inline-block;
+  text-align: center;
+  vertical-align: center;
+  float: right;
+  width: 95%;
+  height: 100%;
+  background-color: orange;
+  border: 5px solid black;
+  border-color: red;
+
+  padding: 0.5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#erreurs
+{
+  display: inline-block;
+  text-align: center;
+  vertical-align: bottom;
+  float: right;
+  width: 95%;
+  height: 100%;
+  background-color: yellow;
+  border: 5px solid black;
+  border-color: orange;
+  padding: 0.5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#invisible
+{
+  display: none;
+}
+
+.invisible
+{
+  display: :none;
+}
+
+#help
+{
+  text-align: right;
+  float: right;
+  vertical-align: top;
+}
+
+.action 
+{
+  text-align: left;
+  display: block;
+  color: yellow;
+  min-width: 250px;
+  background-color: #822520;
+  border: 4px solid #3D110F;
+  cursor: move;
+  margin: 5px;
+}
+
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+li.placeholder {
+  position: relative;
+}
+
+li{
+    list-style: none none;
+}
+
+li.placeholder:before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    margin-top: -8px;
+    left: -8px;
+    top: -1px;
+    border: 8px solid transparent;
+    border-left-color: red;
+    border-right: none;
+    z-index: 2000;
+}
