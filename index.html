@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Koda</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="lib/highlight/styles/default.css">
+    <link href="lib/zoombox/zoombox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="lib/zoombox/zoombox.js"></script>
+    <script type="text/javascript">
+    jQuery(function($){
+        $('a.zoombox').zoombox();
+    });
+    </script>
+</head>
+
+<body> 
+    <a class="zoombox w800 h600" href="images/help4.png"><img src="images/help1.png" id="help"/></a>
+    <h1>
+        <img src="images/logo.png" id="koda"/>
+        Selection niveaux :
+            <a href="editeur_de_niveau.html"> <img src="images/1rond.png"/></a>
+            <input class="bouton" type="image" src="images/1rond.png" onclick="set_level(1)" id="lvl1">
+            <input class="bouton" type="image" src="images/2rond.png" onclick="set_level(2)" id="lvl2">
+            <input class="bouton" type="image" src="images/3rond.png" onclick="set_level(3)" id="lvl3">
+            <input class="bouton" type="image" src="images/4rond.png" onclick="set_level(4)" id="lvl4">
+            <input class="bouton" type="image" src="images/5rond.png" onclick="set_level(5)" id="lvl5">
+    </h1> 
+
+    <div id="englobe_affichage">
+    	<canvas id="affichage"></canvas>
+
+        <div id="bouton_start_reset">
+        <button onclick="reset_affichage()" id="reset_button">Démarrer ▷</button>
+        </div>
+
+        <div id="bouton_load_save">
+        </div>
+    </div>
+
+    <div id="englobe_saisie" ondrop="drop(event)">
+    	<ol id="saisie" class="example" ondrop="drop(event)" ondragover="allowDrop(event)">
+    	</ol>
+
+        <div id="corbeille" ondragover="allowDrop(event)">corbeille<ol id="trash"></ol>
+        </div>
+        
+        <a class="zoombox w800 h600" href="voir_le_code.html"><button onclick="show_code()" id="voir_le_code" type="button">Voir le code</button></a>
+        <button onclick="javascript:window.history.go(0)" id="delete_all" type="button">Tout supprimer</button>
+    </div>
+
+    <div id="englobe_block">
+        <div id="block" ondrop="drop(event)" ondragover="allowDrop(event)">Emplacement pour les blocs de base.
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="droite">droite
+            </li>
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="gauche">gauche
+            </li>
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="haut">haut
+            </li>
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="bas">bas
+            </li>
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="couleur">Changement couleur
+            </li>
+            <li class="action" draggable="true" ondragstart="drag_clone(event)" id="tantque">faire (x) fois<ol class="inner"></ol>
+            </li>
+        </div>
+
+        <div id="indication">
+        </div>
+
+        <div id="erreurs">Ici vous trouverez vos erreurs :
+        </div>
+
+        <button onclick="reset_level()" id="reset_level" type="button">Supprimer la sauvegarde</button>
+
+        <div id="invisible">
+        </div>
+
+    </div>
+    
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="levels/level0.js"></script>
+    <script type="text/javascript" src="levels/level1.js"></script>
+	<script type="text/javascript" src="levels/level2.js"></script>
+    <script type="text/javascript" src="levels/level3.js"></script>
+    <script type="text/javascript" src="levels/level4.js"></script>
+    <script type="text/javascript" src="levels/level5.js"></script>
+    <script type="text/javascript" src="js/drag.js"></script>
+    <script type="text/javascript" src="js/affichage.js"></script>
+    <script type="text/javascript" src="js/voir_le_code.js"></script>
+    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-sortable.js"></script>
+    <script type="text/javascript" src="js/storage.js"></script>
+    <script type="text/javascript"> 
+        $(function  () {
+            //axtivation de la bibliothèque jquery sortable
+            $("#saisie").sortable(
+            { group:'connected-group',
+            onDrop:function($item, container, _super, event)
+                {
+                    if(container.target[0].id=="trash"){
+                        vider_corbeille(); //si on déplace un élément sur la corbeille on la vide
+                    }
+                    if(parseInt($item[0].id) >= 100 && container.target[0].className=="inner"){
+                        logErreur("tantque");
+                        $item[0].remove(); //suppression des items tanque déplacés dans d'autres boucles car les boucles imbriquées ne sont pas prises en charge
+                    }
+                    _super($item, container);
+                }
+        });
+        
+            $("#trash").sortable(
+            { 
+                group:'connected-group',
+            })
+        });
+    </script>  
+</body>
+</html>
