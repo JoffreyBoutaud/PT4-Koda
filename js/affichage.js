@@ -7,7 +7,7 @@ canvas.height=MAX_HEIGHT;
 var ctx = canvas.getContext("2d");
 
 //initialisation des variables
-var chosen_level = 0;
+var chosen_level = 1;
 var lvl_termine = false;
 var step = 0; //sert a parcourir le tableau des déplacements.
 
@@ -20,7 +20,7 @@ var perso = {
     inc_y:0,
     radius: 5,
     color: "blue",
-    
+
     // dessine le cercle
     draw : function() {
         ctx.beginPath();
@@ -42,7 +42,7 @@ function moveRight(){
     c.x += 1; // déplacement d'1px vers la droite
 
     c.inc_x+=1;
-    
+
     //si on s'est déplacé de 25px depuis la dernière case : retourne 1
     if(c.inc_x >= 25)
     {
@@ -63,7 +63,7 @@ function moveLeft(){
     c.x -= 1;
 
     c.inc_x+=1;
-    
+
     if(c.inc_x >= 25)
     {
         c.inc_x = 0;
@@ -82,7 +82,7 @@ function moveUp(){
 
     c.y -= 1;
     c.inc_y+=1;
-    
+
     if(c.inc_y >= 25)
     {
         c.inc_y = 0;
@@ -101,7 +101,7 @@ function moveDown(){
 
     c.y += 1;
     c.inc_y+=1;
-    
+
     if(c.inc_y >= 25)
     {
         c.inc_y = 0;
@@ -225,7 +225,7 @@ function isSameColor(imgData) {
 
 //renvoir true si imgData est la couleur d'une bordure
 function isBorder (imgData) {
-    return imgData.data[0] == 159 && imgData.data[1] == 159 && imgData.data[2] == 159;
+    return imgData.data[0] == 157 && imgData.data[1] == 157 && imgData.data[2] == 157;
 }
 
 //renvoie true si imgData représente une case verte
@@ -257,7 +257,7 @@ function logErreur(err){
         lvl_termine = true;
     };
     if(err == "tantque"){
-        
+
         html = html + "<br><strong>[boucle]</strong> Tu n'a pas besoin de mettre une boucle dans une autre pour résoudre cet exercice.";
     }
     $("#erreurs").html(html);
@@ -414,7 +414,7 @@ function drawLevel(lvl){
         ctx.fillStyle = item.color;
         ctx.fill();
     };
-	
+
 	//quadrillage
 	var i=25;
 	while(i<MAX_WIDTH){
@@ -552,11 +552,11 @@ function generer_deplacements()
                     for (var m = 0; m < deplacements_tq.length; m++) {
                         //création d'un nouvel objet déplacement
                         var dt = new Deplacement(deplacements_tq[m][0], deplacements_tq[m][1]);
-                        deplacements.push(dt);  
+                        deplacements.push(dt);
                     };
                 };
             }
-            
+
         };
     };
 }
